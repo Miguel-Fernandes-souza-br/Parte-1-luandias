@@ -88,3 +88,45 @@ function removerAluno() {
   alert("Aluno " + nome + " removido com sucesso!");
 }
 
+function lancarNota() {
+  let nome = prompt("Digite o nome do aluno:");
+  let aluno = alunos.find(a => a.nome === nome);
+  
+  if (!aluno) {
+    alert("Aluno não encontrado!");
+    return;
+  }
+  
+  let nota = Number(prompt("Digite a nota (0 a 10):"));
+  
+  if (nota < 0 || nota > 10 || isNaN(nota)) {
+    alert("Nota inválida!");
+    return;
+  }
+  
+  aluno.notas.push(nota);
+  alert("Nota lançada com sucesso!");
+}
+
+function verBoletim() {
+  let nome = prompt("Digite o nome do aluno:");
+  let aluno = alunos.find(a => a.nome === nome);
+  
+  if (!aluno) {
+    alert("Aluno não encontrado!");
+    return;
+  }
+  
+  let media = calcularMedia(aluno.notas);
+  let sit = situacao(media);
+  let notasStr = aluno.notas.join(", ");
+  
+  alert(
+    "Aluno: " + aluno.nome + "\n" +
+    "Notas: " + notasStr + "\n" +
+    "Média: " + media.toFixed(2) + "\n" +
+    "Situação: " + sit
+  );
+}
+
+
