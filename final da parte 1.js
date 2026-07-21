@@ -130,3 +130,65 @@ function verBoletim() {
 }
 
 
+function totalDeAlunos() {
+    alert("Total de alunos cadastrados: " + alunos.length);
+}
+
+
+function mediaGeralDaTurma() {
+  
+    if (alunos.length === 0) {
+        alert("Não há alunos cadastrados para calcular a média.");
+        return;
+    }
+
+    let somaDasMedias = 0;
+
+    
+    for (let i = 0; i < alunos.length; i++) {
+        
+        somaDasMedias += calcularMedia(alunos[i]); 
+    }
+
+    
+    let mediaGeral = somaDasMedias / alunos.length;
+
+    
+    alert("Média geral da turma: " + mediaGeral.toFixed(2));
+}
+
+
+function listarAprovados() {
+  
+    if (alunos.length === 0) {
+        alert("Não há alunos cadastrados.");
+        return;
+    }
+
+    let textoAprovados = "--- ALUNOS APROVADOS ---\n";
+    let encontrou = false; 
+
+    
+    for (let i = 0; i < alunos.length; i++) {
+        let aluno = alunos[i];
+        
+      
+        let media = calcularMedia(aluno);
+        let status = situacao(media); 
+
+     
+        if (status === "APROVADO") {
+            textoAprovados += `Nome: ${aluno.nome} - Média: ${media.toFixed(2)}\n`;
+            encontrou = true; 
+        }
+    }
+
+   
+    if (!encontrou) {
+        alert("Ainda não há alunos aprovados.");
+    } else {
+        alert(textoAprovados);
+    }
+}
+
+
