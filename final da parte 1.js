@@ -192,3 +192,99 @@ function listarAprovados() {
 }
 
 
+function submenuCadastro() {
+    let opcao;
+    do {
+        opcao = Number(prompt("=== CADASTRO DE ALUNOS ===\n1 - Cadastrar aluno\n2 - Listar alunos\n3 - Remover aluno\n0 - Voltar\n\nEscolha uma opção:"));
+        
+        switch (opcao) {
+            case 1:
+                cadastrarAluno();
+                break;
+            case 2:
+                listarAlunos();
+                break;
+            case 3:
+                removerAluno();
+                break;
+            case 0:
+                break; 
+            default:
+                alert("Opcao invalida!");
+        }
+    } while (opcao !== 0);
+}
+
+
+function submenuNotas() {
+    let opcao;
+    do {
+        opcao = Number(prompt("=== NOTAS E BOLETIM ===\n1 - Lancar nota\n2 - Ver boletim do aluno\n0 - Voltar\n\nEscolha uma opção:"));
+        
+        switch (opcao) {
+            case 1:
+                lancarNota();
+                break;
+            case 2:
+                verBoletim();
+                break;
+            case 0:
+                break; 
+            default:
+                alert("Opcao invalida!");
+        }
+    } while (opcao !== 0);
+}
+
+
+function submenuRelatorios() {
+    let opcao;
+    do {
+        opcao = Number(prompt("=== RELATÓRIOS ===\n1 - Total de alunos\n2 - Media geral da turma\n3 - Listar aprovados\n0 - Voltar\n\nEscolha uma opção:"));
+        
+        switch (opcao) {
+            case 1:
+                totalAlunos();
+                break;
+            case 2:
+                mediaGeral();
+                break;
+            case 3:
+                listarAprovados();
+                break;
+            case 0:
+                break; 
+            default:
+                alert("Opcao invalida!");
+        }
+    } while (opcao !== 0);
+}
+
+
+function menuPrincipal() {
+    let opcao;
+    do {
+        opcao = Number(prompt("=== SISTEMA ESCOLAR ===\n1 - Cadastro\n2 - Notas\n3 - Relatorios\n0 - Sair\n\nEscolha uma opção:"));
+        
+        switch (opcao) {
+            case 1:
+                submenuCadastro();
+                break;
+            case 2:
+                submenuNotas();
+                break;
+            case 3:
+                submenuRelatorios();
+                break;
+            case 0:
+                alert("Obrigado por usar o sistema. Até logo!");
+                break;
+            default:
+                alert("Opcao invalida!");
+        }
+    } while (opcao !== 0);
+}
+
+
+menuPrincipal();
+
